@@ -8,6 +8,7 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { AfProductComponent } from '../../pages/af-product/af-product.component';
 import { AfOrderComponent } from '../../pages/af-order/af-order.component';
 import { CartComponent } from '../../pages/cart/cart.component';
+import { CheckoutComponent } from '../../pages/checkout/checkout.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -17,5 +18,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'afproducts',     component: AfProductComponent },
     { path: 'aforders',       component: AfOrderComponent },
-    { path: 'cart',       component: CartComponent }
+    { path: 'cart',           component: CartComponent },
+    { path: 'checkout',       component: CheckoutComponent }
 ];

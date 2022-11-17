@@ -1,0 +1,90 @@
+<div class="container">
+  <!--When the cart is empty-->
+
+
+  <div class="row mb-3 " >
+    <div class="col-sm-12 text-center my-5 ">
+      <h1>
+        Checkout
+      </h1>
+    </div>
+  
+    <div class="col-sm-7 p-3 mx-2 border-light rounded bg-light border-secondary">
+      <span class="d-flex w-100 justify-content-between flex-sm-column flex-md-row flex-lg-row">
+        <h5 class="font-weight-bold w-25">Shipping Details</h5>
+        <hr class="w-75">
+      </span>
+
+      <span class=" py-3 d-flex w-100 justify-content-between flex-column">
+       <span class=" d-flex w-100 justify-content-start flex-sm-column flex-md-row flex-lg-row text-capitalize "><h6 class="font-weight-bold pr-2 ">Name:</h6>Jon Snow</span>
+       <span class=" d-flex w-100 justify-content-start flex-sm-column flex-md-row flex-lg-row "><h6 class="font-weight-bold pr-2">Phone: </h6> 12345 <span>/23434234 <span > <a routerLink="../customer/profile">Update phone details</a></span></span></span>
+       <span class=" d-flex w-100 justify-content-start flex-sm-column flex-md-row flex-lg-row text-capitalize "><h6 class="font-weight-bold pr-2">Delivery Address:</h6> </span>
+      <span >The north</span><span > <a routerLink="../customer/profile">Update address details</a></span></span>
+
+      <span class="d-flex w-100 justify-content-between flex-sm-column flex-md-row flex-lg-row">
+        <h6 class="font-weight-bold w-50">Information to accompany the order</h6>
+        <hr class="w-50">
+      </span>
+      
+    </div>
+
+    <div class="col-sm-4 p-3  border-light rounded bg-light border border-secondary">
+      <h5 class="font-weight-bold">Your order</h5>
+
+      <div col-sm-12 text-center>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Total</th>
+            </tr>
+
+          </thead>
+          <tbody>
+            <tr>
+              <td class="">
+                2 x wings
+              </td>
+              <td>
+                2 x 100
+              </td>
+
+            </tr>
+            <tr>
+              <td class="total-hd">Total</td>
+              <td class="total-qty">Total</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <!-- Form starts -->
+        <form >
+            <!-- Gender -->
+            <div class="group-gap">
+              <h5 class="mb-3">Payment</h5>
+            </div>
+            <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <input class="form-control" placeholder="Card number" type="text">
+                </div>
+            </div>
+            <!-- Submit Button -->
+            <div class="place-order text-center">
+              <button class="btn btn-danger btn-block" >Place Oreer</button>
+            </div>
+          </form><!-- Form ends -->
+      </div>
+
+
+    </div>
+    <div class="col-sm-12 ml-auto mr-auto d-flex py-5 nav-btn">
+      <div class="d-flex flex-sm-column flex-md-row w-100 ">
+        <button class="btn btn-dark btn-sm order-0 mx-2" routerLink="/restaurants"><i class="fa fa-home"></i> Continue</button>
+        <button class="btn btn-secondary btn-sm order-1" routerLink="/cart"><i class="fa fa-shopping-cart"></i> Shopping cart</button>
+        
+      </div>
+
+    </div>
+  </div>
+</div>

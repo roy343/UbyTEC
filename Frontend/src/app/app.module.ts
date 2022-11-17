@@ -17,6 +17,7 @@ import { AfrequestComponent } from './pages/afrequest/afrequest.component';
 import { AfProductComponent } from './pages/af-product/af-product.component';
 import { AfOrderComponent } from './pages/af-order/af-order.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CartComponent } from './pages/cart/cart.component';
     AfrequestComponent,
     AfProductComponent,
     AfOrderComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
