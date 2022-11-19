@@ -19,6 +19,7 @@ import { AfOrderComponent } from './pages/af-order/af-order.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ClientStoresComponent } from './pages/client-stores/client-stores.component';
+import { DeliveryComponent } from './pages/delivery/delivery.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ClientStoresComponent } from './pages/client-stores/client-stores.compo
     AfOrderComponent,
     CartComponent,
     CheckoutComponent,
-    ClientStoresComponent
+    ClientStoresComponent,
+    DeliveryComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
