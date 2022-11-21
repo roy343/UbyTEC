@@ -24,50 +24,51 @@
           <div class="text-center text-muted mb-4">
             <small>Please fill the requested information to create your account</small>
           </div>
-          <form role="form">
+          
+          <form [formGroup]="clientform">
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
-                <input class="form-control" placeholder="ID" type="text">
+                <input class="form-control" placeholder="ID" type="text" id="client_id" name="client_id">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
-                <input class="form-control" placeholder="Name" type="text">
+                <input class="form-control" placeholder="Name" type="text" id="client_name" name="client_name">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
-                <input class="form-control" placeholder="First last name" type="text">
+                <input class="form-control" placeholder="First last name" type="text" id="client_lm1" name="client_lm1">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
-                <input class="form-control" placeholder="Second last name" type="text">
+                <input class="form-control" placeholder="Second last name" type="text" id="client_lm2" name="client_lm2">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
-                <input class="form-control" placeholder="Address" type="text">
+                <input class="form-control" placeholder="Address" type="text" id="address" name="address">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
-                <input class="form-control" placeholder="Email" type="email">
+                <input class="form-control" placeholder="Email" type="email" id="email" name="email">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
-                <input class="form-control" placeholder="Phone number" type="text">
+                <input class="form-control" placeholder="Phone number" type="text" id="pnumber" name="pnumber">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative">
-                <input class="form-control" placeholder="Birthdate" type="date">
+                <input class="form-control" placeholder="Birthdate" type="date" id="birthdate" name="birthdate">
               </div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative">
-                <input class="form-control" placeholder="Password" type="password">
+                <input class="form-control" placeholder="Password" type="password" id="password" name="password">
               </div>
             </div>
             <div class="text-center">
@@ -79,3 +80,4 @@
     </div>
   </div>
 </div>
+
