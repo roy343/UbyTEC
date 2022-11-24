@@ -24,77 +24,96 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   handleLogin() {
-    
-    this.api.getEmployeebyUsername(this.username).subscribe(
-      (data : Object) => {
-        data['userType'] = 'employee';
+    if(this.username == "" || this.password == ""){
+      this.errorState = true;
+      this.errorMsg = "Please fill in all fields";
+    }
+    if(this.username.includes("@")){
+      try {
+        this.api.getAffiliatebyEmail(this.username).subscribe(
+          (data: Object) => {
+            if(data['0'] == undefined){
+              this.errorState = true
+              this.errorMsg = 'No employee found with that username'
+              return
+            }
+            if (this.password !== data['0']['contrasena']) {
+              this.errorState = true
+              this.errorMsg = 'Email or password incorrect!'
+              return
+            }
+            data['userType'] = 'affiliate';
+            this.localStorage.saveData('user', JSON.stringify(data))
+            this.router.navigate(['/dashboard'])
+            console.log("gucci affiliate")
+            return
+          }, (error => {
+            if(error.status === 404){
+              this.errorState = true
+              this.errorMsg = 'Email or password incorrect!'
+            }
+            
+          })
 
-        if(this.password !== data['0']['contrasena']){
-          this.errorState = true
-          this.errorMsg = 'Email or password incorrect!'
-          console.log(this.errorMsg)
+        )
+    } catch (notFound) {
+      this.api.getClientbyEmail(this.username).subscribe(
+        (data: Object) => {
+          if(data['0'] == undefined){
+            this.errorState = true
+            this.errorMsg = 'No employee found with that username'
+            return
+          }
+          if (this.password !== data['0']['contrasena']) {
+            this.errorState = true
+            this.errorMsg = 'Email or password incorrect!'
+            return
+          }
+          data['userType'] = 'client';
+          this.localStorage.saveData('user', JSON.stringify(data))
+          this.router.navigate(['/dashboard'])
+          
+          console.log("gucci client")
           return
-        }
-        
-        this.localStorage.saveData('user', JSON.stringify(data))
-        this.router.navigate(['/affiliate-list'])
-        console.log("gucci employee")
+        }, (error => {
+          if(error.status === 404){
+            this.errorState = true
+            this.errorMsg = 'Email or password incorrect!'
+          }
+          
+        })
 
-        return
-      }, (error => {
-        if (error.status === 404) {
-          this.errorState = true
-          this.errorMsg = 'Email or password incorrect!'
-        }
-      })
-    )
-    this.api.getAffiliatebyEmail(this.username).subscribe(
-      (data: Object) => {
-        data['userType'] = 'affiliate';
-
-        if (this.password !== data['0']['contrasena']) {
-          this.errorState = true
-          this.errorMsg = 'Email or password incorrect!'
+      )
+    }
+    } else {
+      this.api.getEmployeebyUsername(this.username).subscribe(
+        (data : Object) => {
+          console.log(data)
+          if(data['0'] == undefined){
+            this.errorState = true
+            this.errorMsg = 'No employee found with that username'
+            return
+          }
+          if(this.password !== data['0']['contrasena']){
+            this.errorState = true
+            this.errorMsg = 'Email or password incorrect!'
+            console.log(this.errorMsg)
+            return
+          }
+          data['userType'] = 'employee';
+          this.localStorage.saveData('user', JSON.stringify(data))
+          this.router.navigate(['/affiliate-list'])
+          console.log("gucci employee")
+  
           return
-        }
-        
-        this.localStorage.saveData('user', JSON.stringify(data))
-        this.router.navigate(['/dashboard'])
-        console.log("gucci affiliate")
-        return
-      }, (error => {
-        if(error.status === 404){
-          this.errorState = true
-          this.errorMsg = 'Email or password incorrect!'
-        }
-        
-      })
-
-    )
-    this.api.getClientbyEmail(this.username).subscribe(
-      (data: Object) => {
-        data['userType'] = 'client';
-
-        if (this.password !== data['0']['contrasena']) {
-          this.errorState = true
-          this.errorMsg = 'Email or password incorrect!'
-          return
-        }
-        
-        this.localStorage.saveData('user', JSON.stringify(data))
-        this.router.navigate(['/dashboard'])
-        
-        console.log("gucci client")
-        return
-      }, (error => {
-        if(error.status === 404){
-          this.errorState = true
-          this.errorMsg = 'Email or password incorrect!'
-        }
-        
-      })
-
-    )
+        }, (error => {
+          if (error.status === 404) {
+            this.errorState = true
+            this.errorMsg = 'Email or password incorrect!'
+          }
+        })
+      )
+    }
     
     return
   }

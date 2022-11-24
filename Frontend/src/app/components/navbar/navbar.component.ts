@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
       this.listTitles = AFROUTES.filter(listTitle => listTitle);
     }else if(this.local.getData('userType') === 'employee'){
       this.listTitles = EMROUTES.filter(listTitle => listTitle);
-    }else if(this.local.getData('userType') === 'client'){
+    }else{
       this.listTitles = CLROUTES.filter(listTitle => listTitle);
     }
   }
