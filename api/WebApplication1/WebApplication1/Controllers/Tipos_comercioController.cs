@@ -16,9 +16,11 @@ namespace WebApplication1.Controllers
     public class Tipos_comercioController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
         public Tipos_comercioController(IConfiguration configuration)
         {
             _configuration = configuration;
+            _connectionString = _configuration.GetConnectionString("EmployeeAppCon");
         }
 
         [HttpGet]
@@ -27,13 +29,12 @@ namespace WebApplication1.Controllers
             string query = @"
                             select id, nombre            
                             from
-                            dbo.tipos_comercio
+                            tipos_comercio
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -55,21 +56,20 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Tipos_comercio dep)
         {
             string query = @"
-                           insert into dbo.tipos_comercio (id , nombre ) 
+                           insert into tipos_comercio (id , nombre ) 
                            values (@id , @nombre )             
                      
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@id", dep.nombre);
-                    myCommand.Parameters.AddWithValue("@id", dep.nombre);
+                    myCommand.Parameters.AddWithValue("@nombre", dep.nombre);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
 
@@ -86,7 +86,7 @@ namespace WebApplication1.Controllers
         public JsonResult Put(Tipos_comercio dep)
         {
             string query = @"
-                           update dbo.tipos_comercio
+                           update tipos_comercio
                            set 
                            cedula =  @id,
                             telefono = @nombre,
@@ -96,9 +96,8 @@ namespace WebApplication1.Controllers
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -121,14 +120,13 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                           delete from dbo.tipos_comercio
+                           delete from tipos_comercio
                             where id=@id
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -151,14 +149,13 @@ namespace WebApplication1.Controllers
             string query = @"
                             select *            
                             from
-                            dbo.tipos_comercio
+                            tipos_comercio
                             where id = @id
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -185,9 +182,8 @@ namespace WebApplication1.Controllers
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))

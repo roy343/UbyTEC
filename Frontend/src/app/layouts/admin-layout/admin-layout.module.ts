@@ -10,7 +10,12 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { ToastrModule } from 'ngx-toastr';
+import { EmployeeListComponent } from '../../pages/employee-list/employee-list.component';
+import { DelivererListComponent } from '../../pages/deliverer-list/deliverer-list.component';
+import { AffiliateListComponent } from '../../pages/affiliate-list/affiliate-list.component';
+import { AffiliationsComponent } from '../../pages/affiliations/affiliations.component';
+import { BusinessListComponent } from '../../pages/business-list/business-list.component';
+import { ReportsComponent } from '../../pages/reports/reports.component';
 
 @NgModule({
   imports: [
@@ -24,7 +29,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     UserProfileComponent,
     TablesComponent,
-    MapsComponent
+    //IconsComponent,
+    MapsComponent,
+    EmployeeListComponent,
+    DelivererListComponent,
+    AffiliateListComponent,
+    AffiliationsComponent,
+    BusinessListComponent,
+    ReportsComponent
   ]
 })
 

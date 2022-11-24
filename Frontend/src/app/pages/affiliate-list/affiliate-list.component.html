@@ -10,7 +10,7 @@
         <div class="column">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <h3 class="mb-0">List</h3>
+                    <h3 class="mb-0">Afiliados</h3>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
@@ -29,28 +29,28 @@
                         <tbody>
                             <tr *ngFor="let affiliate of affiliates">
                                 <td>
-                                    {{user.id}}
+                                    {{affiliate.id}}
                                 </td>
                                 <td>
-                                    {{user.name}}
+                                    {{affiliate.name}}
                                 </td>
                                 <td>
-                                    {{user.email}}
+                                    {{affiliate.email}}
                                 </td>
                                 <td>
-                                    {{user.phone}}
+                                    {{affiliate.phone}}
                                 </td>
                                 <td>
-                                    {{user.province}}
+                                    {{affiliate.province}}
                                 </td>
                                 <td>
-                                    {{user.canton}}
+                                    {{affiliate.canton}}
                                 </td>
                                 <td>
-                                    {{user.district}}
+                                    {{affiliate.district}}
                                 </td>
                                 <td>
-                                    {{user.businessType}}
+                                    {{affiliate.businessType}}
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-info" (click)="handleEdit(user.ID)">Editar</button>

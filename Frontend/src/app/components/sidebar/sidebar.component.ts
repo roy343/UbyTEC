@@ -41,10 +41,14 @@ export class SidebarComponent implements OnInit {
 
   public menuItems: any[];
   public isCollapsed = true;
+  currentUser: Object = {};
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.currentUser = JSON.parse(localStorage.getItem('user'));
+
+    console.log(localStorage.getItem('userType'));
     if (localStorage.getItem('userType') == 'affiliate') {
       this.menuItems = AFROUTES.filter(menuItem => menuItem);
     } else if (localStorage.getItem('userType') == 'employee') {
@@ -52,6 +56,7 @@ export class SidebarComponent implements OnInit {
     } else {
       this.menuItems = CLROUTES.filter(menuItem => menuItem);
     }
+    console.log(this.menuItems);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });

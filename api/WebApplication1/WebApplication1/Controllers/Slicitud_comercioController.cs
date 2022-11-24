@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
             string query = @"
                             select cedula_admin, cedula_comercio, aceptado            
                             from
-                            dbo.solicitud_comercio
+                            solicitud_comercio
                             ";
 
             DataTable table = new DataTable();
@@ -55,7 +55,7 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Solicitud_comercio dep)
         {
             string query = @"
-                           insert into dbo.solicitud_comercio (cedula_admin, cedula_comercio, aceptado   ) 
+                           insert into solicitud_comercio (cedula_admin, cedula_comercio, aceptado   ) 
                            values (@cedula_admin, @cedula_comercio, @aceptado  )             
                      
                             ";
@@ -87,7 +87,7 @@ namespace WebApplication1.Controllers
         public JsonResult Put(Solicitud_comercio dep)
         {
             string query = @"
-                           update dbo.solicitud_comercio
+                           update solicitud_comercio
                            set 
                            cedula_admin = @cedula_admin, 
                            cedula_comercio = @cedula_comercio, 
@@ -124,7 +124,7 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                           delete from dbo.solicitud_comercio
+                           delete from solicitud_comercio
                             where cedula_admin=@cedula_admin
                             ";
 

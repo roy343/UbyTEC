@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
             string query = @"
                             select cedula ,usuario, id_direccion, contrasena, nombre, apellido1, apellido2, fecha_nac, telefono            
                             from
-                            dbo.cliente
+                            cliente
                             ";
 
             DataTable table = new DataTable();
@@ -55,7 +55,7 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Cliente dep)
         {
             string query = @"
-                           insert into dbo.cliente (cedula ,usuario, id_direccion, contrasena, nombre, apellido1, apellido2, fecha_nac, telefono ) 
+                           insert into cliente (cedula ,usuario, id_direccion, contrasena, nombre, apellido1, apellido2, fecha_nac, telefono ) 
                            values (@cedula ,@usuario, @id_direccion, @contrasena, @nombre, @apellido1, @apellido2, @fecha_nac, @telefono )             
                      
                             ";
@@ -93,7 +93,7 @@ namespace WebApplication1.Controllers
         public JsonResult Put(Cliente dep)
         {
             string query = @"
-                           update dbo.Cliente
+                           update Cliente
                            set 
                            cedula =  @cedula,
                             usuario = @usuario,
@@ -142,7 +142,7 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                           delete from dbo.cliente
+                           delete from cliente
                             where cedula=@cedula
                             ";
 
@@ -172,7 +172,7 @@ namespace WebApplication1.Controllers
             string query = @"
                             select *            
                             from
-                            dbo.Cliente
+                            cliente
                             where usuario = @usuario
                             ";
 

@@ -16,9 +16,11 @@ namespace WebApplication1.Controllers
     public class DireccionController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
         public DireccionController(IConfiguration configuration)
         {
             _configuration = configuration;
+            _connectionString = _configuration.GetConnectionString("EmployeeAppCon");
         }
 
         [HttpGet]
@@ -27,13 +29,12 @@ namespace WebApplication1.Controllers
             string query = @"
                             select id_direccion, provincia, canton, distrito           
                             from
-                            dbo.direccion
+                            direccion
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -55,15 +56,14 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Direccion dep)
         {
             string query = @"
-                           insert into dbo.direccion (id_direccion, provincia, canton, distrito ) 
+                           insert into direccion (id_direccion, provincia, canton, distrito ) 
                            values (@id_direccion, @provincia, @canton, @distrito  )             
                      
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -87,7 +87,7 @@ namespace WebApplication1.Controllers
         public JsonResult Put(Direccion dep)
         {
             string query = @"
-                           update dbo.direccion
+                           update direccion
                            set 
                            id_direccion = @id_direccion, 
                            provincia = @provincia, 
@@ -99,9 +99,8 @@ namespace WebApplication1.Controllers
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -126,14 +125,13 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                           delete from dbo.direccion
+                           delete from direccion
                             where id_direccion = @id_direccion
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))

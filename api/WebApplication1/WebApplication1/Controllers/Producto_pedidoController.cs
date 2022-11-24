@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
             string query = @"
                             select id_pedido, id_producto, cantidad            
                             from
-                            dbo.producto_pedido
+                            producto_pedido
                             ";
 
             DataTable table = new DataTable();
@@ -55,7 +55,7 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Producto_pedido dep)
         {
             string query = @"
-                           insert into dbo.producto_pedido (id_pedido, id_producto, cantidad ) 
+                           insert into producto_pedido (id_pedido, id_producto, cantidad ) 
                            values (@id_pedido, @id_producto, @cantidad )             
                      
                             ";
@@ -87,7 +87,7 @@ namespace WebApplication1.Controllers
         public JsonResult Put(Producto_pedido dep)
         {
             string query = @"
-                           update dbo.producto_pedido
+                           update producto_pedido
                            set 
                            id_pedido = @id_pedido, 
                            id_producto = @id_producto, 
@@ -124,7 +124,7 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                           delete from dbo.producto_pedido
+                           delete from producto_pedido
                             where id_pedido=@id_pedido
                             ";
 

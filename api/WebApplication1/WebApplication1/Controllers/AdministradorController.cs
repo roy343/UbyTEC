@@ -16,10 +16,14 @@ namespace WebApplication1.Controllers
     public class AdministradorController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
         public AdministradorController(IConfiguration configuration)
         {
             _configuration = configuration;
+            _connectionString = _configuration.GetConnectionString("EmployeeAppCon");
         }
+
+
 
         [HttpGet]
         public JsonResult Get()
@@ -27,13 +31,12 @@ namespace WebApplication1.Controllers
             string query = @"
                             select cedula ,usuario, id_direccion, contrasena, nombre, apellido1, apellido2            
                             from
-                            dbo.administrador
+                            administrador
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -55,15 +58,14 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Administrador dep)
         {
             string query = @"
-                           insert into dbo.administrador (cedula ,usuario, id_direccion, contrasena, nombre, apellido1, apellido2) 
+                           insert into administrador (cedula ,usuario, id_direccion, contrasena, nombre, apellido1, apellido2) 
                            values (@cedula ,@usuario, @id_direccion, @contrasena, @nombre, @apellido1, @apellido2)             
                      
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -91,24 +93,21 @@ namespace WebApplication1.Controllers
         public JsonResult Put(Administrador dep)
         {
             string query = @"
-                           update dbo.administrador
+                           update administrador
                            set 
-                           cedula =  @cedula,
                             usuario = @usuario,
                             id_direccion = @id_direccion,
                             contrasena = @contrasena,
                             nombre = @nombre,
                             apellido1 = @apellido1,
                             apellido2 = @apellido2,
-                           
-                          
-                           where cedula= @cedula
+
+                            where cedula = @cedula
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -136,14 +135,13 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                           delete from dbo.administrador
+                           delete from administrador
                             where cedula=@cedula
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -166,14 +164,13 @@ namespace WebApplication1.Controllers
             string query = @"
                             select *            
                             from
-                            dbo.administrador
+                            administrador
                             where usuario = @usuario
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
@@ -196,20 +193,19 @@ namespace WebApplication1.Controllers
             string query = @"
                             select *            
                             from
-                            dbo.administrador
+                            administrador
                             where cedula = @cedula
                             ";
 
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             NpgsqlDataReader myReader;
-            using (NpgsqlConnection myCon = new NpgsqlConnection(sqlDataSource))
+            using (NpgsqlConnection myCon = new NpgsqlConnection(_connectionString))
             {
                 myCon.Open();
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
                 {
 
-                    myCommand.Parameters.AddWithValue("@cedula", cedula);
+                    myCommand.Parameters.AddWithValue("@cedula", int.Parse(cedula));
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();

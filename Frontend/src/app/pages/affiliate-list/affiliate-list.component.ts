@@ -38,7 +38,7 @@ export class AffiliateListComponent implements OnInit {
   }
 
   handleEdit(id: number) {
-    this.router.navigate(['/affiliate-edit', id]);
+    this.router.navigate(['/affiliates/', id]);
   }
 
 }

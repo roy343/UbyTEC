@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
             string query = @"
                             select cedula ,nombre_comercio, id_direccion, sinpe, email, tipo           
                             from
-                            dbo.comercio_afiliado
+                            comercio_afiliado
                             ";
 
             DataTable table = new DataTable();
@@ -55,7 +55,7 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Comercio_afiliado dep)
         {
             string query = @"
-                           insert into dbo.comercio_afiliado (cedula ,nombre_comercio, id_direccion, sinpe, email, tipo ) 
+                           insert into comercio_afiliado (cedula ,nombre_comercio, id_direccion, sinpe, email, tipo ) 
                            values (@cedula ,@nombre_comercio, @id_direccion, @sinpe, @email, @tipo )             
                      
                             ";
@@ -90,7 +90,7 @@ namespace WebApplication1.Controllers
         public JsonResult Put(Comercio_afiliado dep)
         {
             string query = @"
-                           update dbo.comercio_afiliado
+                           update comercio_afiliado
                            set 
                            cedula = @cedula,
                            nombre_comercio = @nombre_comercio, 
@@ -133,7 +133,7 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                           delete from dbo.comercio_afiliado
+                           delete from comercio_afiliado
                             where cedula=@cedula
                             ";
 
@@ -163,7 +163,7 @@ namespace WebApplication1.Controllers
             string query = @"
                             select *            
                             from
-                            dbo.comercio_afiliado
+                            comercio_afiliado
                             where cedula = @cedula
                             ";
 
@@ -192,7 +192,7 @@ namespace WebApplication1.Controllers
             string query = @"
                             select *            
                             from
-                            dbo.comercio_afiliado
+                            comercio_afiliado
                             where email = @email
                             ";
 

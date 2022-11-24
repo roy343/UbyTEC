@@ -1,6 +1,11 @@
 import { Routes } from '@angular/router';
 
+<<<<<<< Updated upstream
 
+=======
+//import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
+//import { IconsComponent } from '../../pages/icons/icons.component';
+>>>>>>> Stashed changes
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
@@ -25,8 +30,15 @@ import { DeliveryComponent} from 'src/app/pages/delivery/delivery.component';
 
 
 export const AdminLayoutRoutes: Routes = [
+<<<<<<< Updated upstream
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },
+=======
+   // { path: 'dashboard',      component: DashboardComponent },
+    { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'tables',         component: TablesComponent },
+    //{ path: 'icons',          component: IconsComponent },
+>>>>>>> Stashed changes
     { path: 'maps',           component: MapsComponent },
     { path: 'afproducts',     component: AfProductComponent },
     { path: 'aforders',       component: AfOrderComponent },

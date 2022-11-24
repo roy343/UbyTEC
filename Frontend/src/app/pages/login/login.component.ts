@@ -43,7 +43,8 @@ export class LoginComponent implements OnInit, OnDestroy {
               return
             }
             data['userType'] = 'affiliate';
-            this.localStorage.saveData('user', JSON.stringify(data))
+            this.localStorage.saveData('user', JSON.stringify(data['0']));
+            this.localStorage.saveData('userType', JSON.stringify(data['userType']));
             this.router.navigate(['/dashboard'])
             console.log("gucci affiliate")
             return
@@ -70,7 +71,8 @@ export class LoginComponent implements OnInit, OnDestroy {
             return
           }
           data['userType'] = 'client';
-          this.localStorage.saveData('user', JSON.stringify(data))
+          this.localStorage.saveData('user', JSON.stringify(data['0']));
+          this.localStorage.saveData('userType', JSON.stringify(data['userType']));
           this.router.navigate(['/dashboard'])
           
           console.log("gucci client")
@@ -88,7 +90,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     } else {
       this.api.getEmployeebyUsername(this.username).subscribe(
         (data : Object) => {
-          console.log(data)
           if(data['0'] == undefined){
             this.errorState = true
             this.errorMsg = 'No employee found with that username'
@@ -101,8 +102,9 @@ export class LoginComponent implements OnInit, OnDestroy {
             return
           }
           data['userType'] = 'employee';
-          this.localStorage.saveData('user', JSON.stringify(data))
-          this.router.navigate(['/affiliate-list'])
+          this.localStorage.saveData('user', JSON.stringify(data['0']));
+          this.localStorage.saveData('userType', JSON.stringify(data['userType']));
+          this.router.navigate(['/affiliates'])
           console.log("gucci employee")
   
           return

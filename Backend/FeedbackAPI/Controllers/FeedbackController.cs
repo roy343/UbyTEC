@@ -17,6 +17,9 @@ public class FeedbackController : ControllerBase
     public async Task<List<Feed>> Get() =>
         await _feedbackService.GetAsync();
 
+    [HttpGet("test/{a}")]
+    public IActionResult Get(int a){ return Ok("Hello World!" + a); }
+
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<Feed>> Get(string id)
     {

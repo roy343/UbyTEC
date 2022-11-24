@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
             string query = @"
                             select id ,usuario, id_direccion, contrasena, nombre, apellido1, apellido2, email, disponibilidad            
                             from
-                            dbo.repartidor
+                            repartidor
                             ";
 
             DataTable table = new DataTable();
@@ -55,7 +55,7 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Repartidor dep)
         {
             string query = @"
-                           insert into dbo.repartidor (id ,usuario, id_direccion, contrasena, nombre, apellido1, apellido2, email, disponibilidad ) 
+                           insert into repartidor (id ,usuario, id_direccion, contrasena, nombre, apellido1, apellido2, email, disponibilidad ) 
                            values (@id ,@usuario, @id_direccion, @contrasena, @nombre, @apellido1, @apellido2, @email, @disponibilidad )             
                      
                             ";
@@ -93,7 +93,7 @@ namespace WebApplication1.Controllers
         public JsonResult Put(Repartidor dep)
         {
             string query = @"
-                           update dbo.repartidor
+                           update repartidor
                            set 
                            id =  @id,
                             usuario = @usuario,
@@ -142,7 +142,7 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                           delete from dbo.repartidor
+                           delete from repartidor
                             where id=@id
                             ";
 

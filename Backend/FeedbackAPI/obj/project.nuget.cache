@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AcFdN7rFxeMKmS99Fw+h8trtfBPBXcoj1XCB0noLZGsqjqappVCvr8pEavw735pi7r2Xu+e9nTW0G8Wpmj9bFg==",
+  "dgSpecHash": "6OQtuOIqw1QP+IZWCpx0c/eDjnDS1r2JjLSgGq9K6ixwLUMSORz/U9f3o/jUnq1TAk/OJu/M3n2KbnG2oAsnaw==",
   "success": true,
-  "projectFilePath": "Z:\\uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj",
+  "projectFilePath": "Z:\\Uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danya\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

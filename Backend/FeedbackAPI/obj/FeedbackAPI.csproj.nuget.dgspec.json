@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj": {}
+    "Z:\\Uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj": {}
   },
   "projects": {
-    "Z:\\uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj": {
+    "Z:\\Uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj",
+        "projectUniqueName": "Z:\\Uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj",
         "projectName": "FeedbackAPI",
-        "projectPath": "Z:\\uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj",
+        "projectPath": "Z:\\Uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\FeedbackAPI.csproj",
         "packagesPath": "C:\\Users\\danya\\.nuget\\packages\\",
-        "outputPath": "Z:\\uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\obj\\",
+        "outputPath": "Z:\\Uni\\2022 II Semestre\\Bases\\Proyecto II\\UbyTEC\\Backend\\FeedbackAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\danya\\AppData\\Roaming\\NuGet\\NuGet.Config"

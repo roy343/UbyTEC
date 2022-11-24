@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
+  public name: String = this.local.getData('user')['name'];
   constructor(location: Location,  private element: ElementRef, private router: Router, private local: StorageService) {
     this.location = location;
   }

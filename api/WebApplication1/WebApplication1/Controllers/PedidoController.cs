@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
             string query = @"
                             select id ,comprobante, id_direccion, cedula_cliente, id_repartidor, direc_exacta, estado, monto_total, monto_servicio, comercio            
                             from
-                            dbo.pedido
+                            pedido
                             ";
 
             DataTable table = new DataTable();
@@ -95,7 +95,7 @@ namespace WebApplication1.Controllers
         public JsonResult Put(Pedido dep)
         {
             string query = @"
-                           update dbo.pedido
+                           update pedido
                            set 
                            id = @id,
                            comprobante = @comprobante, 
@@ -146,7 +146,7 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                           delete from dbo.pedido
+                           delete from pedido
                             where id=@id
                             ";
 
