@@ -19,6 +19,9 @@ import { AfOrderComponent } from './pages/af-order/af-order.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { BusinessAdminComponent } from './pages/affiliate-admin/business-admin.component';
+import { ClientStoresComponent } from './pages/client-stores/client-stores.component';
+import { ClientHomeComponent } from './pages/client-home/client-home.component';
+import { DeliveryComponent } from './pages/delivery/delivery.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { BusinessAdminComponent } from './pages/affiliate-admin/business-admin.c
     AfProductComponent,
     AfOrderComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ClientStoresComponent,
+    ClientHomeComponent,
+    DeliveryComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

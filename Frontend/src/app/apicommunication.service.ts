@@ -160,4 +160,22 @@ export class APICommunicationService {
   public getAffiliateSalesReport() {
     return this.httpClient.get(this.url + 'affiliateSalesReport');
   }
+
+  //Gestion de productos
+  public getProductbyID(id:any) {
+    return this.httpClient.get(`${this.url}producto/cedula_comercio/${id}`)
+  }
+
+  public deleteProduct(id: any) {
+    return this.httpClient.delete(`${this.url}producto/${id}`)
+  }
+
+  //Gestion de tiendas
+
+  public getStores() {
+    return this.httpClient.get(`${this.url}comercio_afiliado`)
+  }
+  public getStorebyId(id: number) {
+    return this.httpClient.get(`${this.url}comercio_afiliado/cedula/${id}`)
+  }
 }

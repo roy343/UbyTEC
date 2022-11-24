@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
-import { IconsComponent } from '../../pages/icons/icons.component';
+
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
@@ -20,12 +19,14 @@ import { DeliverersComponent } from 'src/app/pages/deliverers/deliverers.compone
 import { EmployeeListComponent } from 'src/app/pages/employee-list/employee-list.component';
 import { EmployeesComponent } from 'src/app/pages/employees/employees.component';
 import { ReportsComponent } from 'src/app/pages/reports/reports.component';
+import { ClientHomeComponent } from 'src/app/pages/client-home/client-home.component';
+import { ClientStoresComponent} from 'src/app/pages/client-stores/client-stores.component';
+import { DeliveryComponent} from 'src/app/pages/delivery/delivery.component';
+
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },
-    { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'afproducts',     component: AfProductComponent },
     { path: 'aforders',       component: AfOrderComponent },
@@ -41,5 +42,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'deliverers', component: DeliverersComponent},
     { path: 'employeeList', component: EmployeeListComponent},
     { path: 'employees', component: EmployeesComponent},
-    { path: 'reports', component: ReportsComponent}
+    { path: 'home', component: ClientHomeComponent},
+    { path: 'store/:storeID', component: ClientStoresComponent},
+    { path: 'reports', component: ReportsComponent},
+    { path: 'delivery', component: DeliveryComponent}
+   
 ];
+

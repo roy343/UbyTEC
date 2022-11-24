@@ -1,0 +1,46 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Stores</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Store Name</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Open</th>
+
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let store of stores">
+                  <th scope="row">
+                    {{store.nombre_comercio}}
+                  </th>
+                  <td>
+                    {{store.tipo}}
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="openShop(store.cedula_comercio)"> Open</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
