@@ -9,6 +9,17 @@ import { AfProductComponent } from '../../pages/af-product/af-product.component'
 import { AfOrderComponent } from '../../pages/af-order/af-order.component';
 import { CartComponent } from '../../pages/cart/cart.component';
 import { CheckoutComponent } from '../../pages/checkout/checkout.component';
+import { BusinessAdminComponent } from 'src/app/pages/affiliate-admin/business-admin.component';
+import { AffiliateListComponent } from 'src/app/pages/affiliate-list/affiliate-list.component';
+import { AffiliatesComponent } from 'src/app/pages/affiliates/affiliates.component';
+import { AffiliationsComponent } from 'src/app/pages/affiliations/affiliations.component';
+import { BusinessComponent } from 'src/app/pages/business/business.component';
+import { BusinessListComponent } from 'src/app/pages/business-list/business-list.component';
+import { DelivererListComponent } from 'src/app/pages/deliverer-list/deliverer-list.component';
+import { DeliverersComponent } from 'src/app/pages/deliverers/deliverers.component';
+import { EmployeeListComponent } from 'src/app/pages/employee-list/employee-list.component';
+import { EmployeesComponent } from 'src/app/pages/employees/employees.component';
+import { ReportsComponent } from 'src/app/pages/reports/reports.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -19,5 +30,16 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'afproducts',     component: AfProductComponent },
     { path: 'aforders',       component: AfOrderComponent },
     { path: 'cart',           component: CartComponent },
-    { path: 'checkout',       component: CheckoutComponent }
+    { path: 'checkout',       component: CheckoutComponent },
+    { path: 'businessAdmin', component: BusinessAdminComponent},
+    { path: 'affiliateList', component: AffiliateListComponent },
+    { path: 'affiliates', component: AffiliatesComponent},
+    { path: 'affiliations', component: AffiliationsComponent},
+    { path: 'business', component: BusinessComponent},
+    { path: 'businessList', component: BusinessListComponent},
+    { path: 'delivererList', component: DelivererListComponent},
+    { path: 'deliverers', component: DeliverersComponent},
+    { path: 'employeeList', component: EmployeeListComponent},
+    { path: 'employees', component: EmployeesComponent},
+    { path: 'reports', component: ReportsComponent}
 ];

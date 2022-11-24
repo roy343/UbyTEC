@@ -1,0 +1,61 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="column">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">List</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Cédula</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Usuario</th>
+                                <th scope="col">Provincia</th>
+                                <th scope="col">Canton</th>
+                                <th scope="col">Distrito</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let deliverer of deliverers">
+                                <td>
+                                    {{user.id}}
+                                </td>
+                                <td>
+                                    {{user.name}}
+                                </td>
+                                <td>
+                                    {{user.email}}
+                                </td>
+                                <td>
+                                    {{user.username}}
+                                </td>
+                                <td>
+                                    {{user.province}}
+                                </td>
+                                <td>
+                                    {{user.canton}}
+                                </td>
+                                <td>
+                                    {{user.district}}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-info" (click)="handleEdit(user.ID)">Editar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
