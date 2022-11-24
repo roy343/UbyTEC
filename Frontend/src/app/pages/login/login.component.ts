@@ -28,12 +28,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.api.getEmployeebyUsername(this.username).subscribe(
       (data : Object) => {
         data['userType'] = 'employee';
-        console.log(data);
-        console.log(data['0']['contrasena']);
-        //q: how do i get the password from the data object?
-        //a: data['password']
 
-        
         if(this.password !== data['0']['contrasena']){
           this.errorState = true
           this.errorMsg = 'Email or password incorrect!'
@@ -42,7 +37,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
         
         this.localStorage.saveData('user', JSON.stringify(data))
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['/affiliate-list'])
         console.log("gucci employee")
 
         return

@@ -1,7 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
+import { AFROUTES,EMROUTES,CLROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,12 +13,18 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  constructor(location: Location,  private element: ElementRef, private router: Router, private local: StorageService) {
     this.location = location;
   }
 
   ngOnInit() {
-    this.listTitles = ROUTES.filter(listTitle => listTitle);
+    if(this.local.getData('userType') === 'affiliate'){
+      this.listTitles = AFROUTES.filter(listTitle => listTitle);
+    }else if(this.local.getData('userType') === 'employee'){
+      this.listTitles = EMROUTES.filter(listTitle => listTitle);
+    }else if(this.local.getData('userType') === 'client'){
+      this.listTitles = CLROUTES.filter(listTitle => listTitle);
+    }
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());
